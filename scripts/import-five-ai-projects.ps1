@@ -5,6 +5,44 @@ param(
 $ErrorActionPreference = 'Stop'
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
+function Repair-Mojibake {
+    param([string]$Text)
+
+    if ($null -eq $Text) { return $Text }
+
+    $enc1251 = [System.Text.Encoding]::GetEncoding(1251)
+    $encUtf8 = [System.Text.Encoding]::UTF8
+    $fixed = $encUtf8.GetString($enc1251.GetBytes($Text))
+
+    $oldCyrillic = ([Regex]::Matches($Text, '[\u0400-\u04FF]')).Count
+    $newCyrillic = ([Regex]::Matches($fixed, '[\u0400-\u04FF]')).Count
+
+    if ($newCyrillic -gt $oldCyrillic) {
+        return $fixed
+    }
+
+    return $Text
+}
+
+function Write-Utf8WithRetry {
+    param(
+        [Parameter(Mandatory = $true)][string]$Path,
+        [Parameter(Mandatory = $true)][string]$Value,
+        [int]$MaxAttempts = 5
+    )
+
+    for ($attempt = 1; $attempt -le $MaxAttempts; $attempt++) {
+        try {
+            Set-Content -Path $Path -Value $Value -Encoding UTF8
+            return
+        }
+        catch {
+            if ($attempt -eq $MaxAttempts) { throw }
+            Start-Sleep -Milliseconds (200 * $attempt)
+        }
+    }
+}
+
 $repoRoot = Split-Path -Parent $PSScriptRoot
 
 $exampleRoot = Join-Path $repoRoot 'examples/sites/aiproject-dr-five-ai-projects'
@@ -32,7 +70,7 @@ foreach ($entry in $downloadMap) {
 }
 
 $docsBundlePath = Join-Path $sourceDir 'docs-bundle.js'
-$docsRaw = Get-Content -Raw -Path $docsBundlePath
+$docsRaw = Get-Content -Raw -Encoding UTF8 -Path $docsBundlePath
 
 $docsMatch = [Regex]::Match($docsRaw, 'window\.TZ_DOCS\s*=\s*(\{.*\})\s*;\s*$', [System.Text.RegularExpressions.RegexOptions]::Singleline)
 if (-not $docsMatch.Success) {
@@ -45,9 +83,9 @@ $specCount = @($docsObject.PSObject.Properties).Count
 
 foreach ($property in $docsObject.PSObject.Properties) {
     $name = $property.Name
-    $text = [string]$property.Value
-    Set-Content -Path (Join-Path $exampleSpecsDir $name) -Value $text -Encoding UTF8
-    Set-Content -Path (Join-Path $librarySpecsDir $name) -Value $text -Encoding UTF8
+    $text = Repair-Mojibake ([string]$property.Value)
+    Write-Utf8WithRetry -Path (Join-Path $exampleSpecsDir $name) -Value $text
+    Write-Utf8WithRetry -Path (Join-Path $librarySpecsDir $name) -Value $text
 }
 
 Copy-Item -Path (Join-Path $sourceDir 'index.html') -Destination (Join-Path $templateDir 'index.html') -Force

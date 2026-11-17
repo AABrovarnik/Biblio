@@ -15,6 +15,7 @@
 - `prompts/` — рабочие промпты и пресеты.
 - `skills/` — скиллы, инструкции и чек-листы.
 - `references/` — справочные материалы и методички.
+- `ideas/future/` — идеи на будущее и продуктовый AI-бэклог.
 - `scripts/` — служебные скрипты импорта/обновления.
 
 ## Что уже добавлено
@@ -30,12 +31,23 @@
 - `examples/sites/aiproject-dr-five-ai-projects/README.md`
 - `specs/technical-assignments/README.md`
 
+Источник: [50 идей AI-агентов](https://aiproject-dr.ru/ai-agents/)
+
+- локальная копия страницы и клиентского набора данных (`index.html`, `data.js`, `script.js`, `styles.css`);
+- отдельный каталог «Идеи на будущее» с 50 идеями AI-агентов;
+- структура для дальнейшего отбора идей в MVP.
+
+См.:
+- `examples/sites/aiproject-dr-ai-agents/README.md`
+- `ideas/future/ai-agents-catalog.md`
+
 ## Обновление материалов из источника
 
 Для повторного импорта используйте:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\import-five-ai-projects.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\import-ai-agents.ps1
 ```
 
 Скрипт заново скачивает ассеты и пересобирает ТЗ в `examples/...` и `specs/...`.

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081d3b">
+  <meta name="description" content="50 идей AI-агентов для бизнеса и жизни. Практический каталог для участников вебинара.">
+  <title>50 AI-агентов — идеи для бизнеса и жизни</title>
+  <link rel="stylesheet" href="styles.css?v=20261114-2">
+  <script src="data.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#catalog">Перейти к каталогу</a>
+  <aside class="sidebar" aria-label="Навигация по каталогу">
+    <a class="side-brand" href="#top" aria-label="К началу каталога"><span class="brand-symbol">50<span class="brand-dot">.</span></span><span>AI АГЕНТОВ<br>КАТАЛОГ ИДЕЙ</span></a>
+    <div class="side-caption"><span>НАВИГАЦИЯ</span><span>01 / 03</span></div>
+    <nav class="chapter-nav" aria-label="Разделы">
+      <a href="#front"><b>01</b><span>Клиенты и продажи<small>Front Office · 15 агентов</small></span><i>↗</i></a>
+      <a href="#back"><b>02</b><span>Внутри компании<small>Back Office · 20 агентов</small></span><i>↗</i></a>
+      <a href="#personal"><b>03</b><span>Для себя<small>B2C · 15 агентов</small></span><i>↗</i></a>
+    </nav>
+    <div class="side-list-head"><span>ВСЕ АГЕНТЫ</span><span>50</span></div>
+    <div class="side-list" id="side-list"></div>
+    <div class="side-footer">КАТАЛОГ ПОСЛЕ ВЕБИНАРА <span>↗</span></div>
+  </aside>
+
+  <div class="page-shell">
+    <header class="mobile-header">
+      <a href="#top" class="mobile-brand">50<span>.</span> <small>AI АГЕНТОВ</small></a>
+      <button class="menu-trigger" type="button" aria-controls="mobile-drawer" aria-expanded="false"><span>Список</span><span class="hamburger"><i></i><i></i></span></button>
+    </header>
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-top"><span>ПРАКТИЧЕСКИЙ КАТАЛОГ</span><span>ПОСЛЕ ВЕБИНАРА / 2026</span></div>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-line"></span> ИДЕИ ДЛЯ ЖИЗНИ И БИЗНЕСА</div>
+            <h1><span>50 AI-агентов.</span><br><em>Найдите свою идею.</em></h1>
+            <p>От первого контакта с клиентом до личного помощника. Выберите интересный сценарий и переходите к нужному агенту по номеру или разделу.</p>
+            <a class="hero-cta" href="#catalog"><span>Смотреть каталог</span><b>↘</b></a>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="art-top">01—50 <span>AI / IDEAS</span></div>
+            <div class="art-number">50</div>
+            <div class="art-ring ring-one"></div><div class="art-ring ring-two"></div>
+            <div class="art-node node-one"></div><div class="art-node node-two"></div><div class="art-node node-three"></div>
+            <div class="art-bottom"><span>3 НАПРАВЛЕНИЯ</span><span>↗</span></div>
+          </div>
+        </div>
+        <div class="hero-bottom"><span>ЛИСТАЙТЕ ВНИЗ <b>↓</b></span><span>КЛИЕНТЫ / КОМАНДА / ЛИЧНОЕ</span></div>
+      </section>
+
+      <section class="overview" id="catalog">
+        <div class="section-kicker"><span>00 / МАРШРУТ</span><span class="section-rule"></span><span>ВЫБЕРИТЕ НАПРАВЛЕНИЕ</span></div>
+        <h2>Три точки входа.<br><em>Пятьдесят сценариев.</em></h2>
+        <div class="overview-grid">
+          <a class="overview-card" href="#front"><span class="overview-index">01 / 15 АГЕНТОВ</span><strong>Привлекать<br>и обслуживать</strong><span class="overview-bottom">B2B FRONT OFFICE <b>↗</b></span></a>
+          <a class="overview-card" href="#back"><span class="overview-index">02 / 20 АГЕНТОВ</span><strong>Управлять<br>и ускорять</strong><span class="overview-bottom">B2B BACK OFFICE <b>↗</b></span></a>
+          <a class="overview-card" href="#personal"><span class="overview-index">03 / 15 АГЕНТОВ</span><strong>Помогать<br>каждый день</strong><span class="overview-bottom">B2C / ДЛЯ СЕБЯ <b>↗</b></span></a>
+        </div>
+      </section>
+
+      <div id="agent-sections"></div>
+
+      <section class="closing" id="finish">
+        <span class="closing-kicker">50 / СЛЕДУЮЩИЙ ШАГ</span>
+        <h2>Начните <em>с одной задачи.</em></h2>
+        <p>Выберите агента, который решает понятную вам проблему. Опишите, кому он помогает, какие данные ему нужны и какой результат должен получить человек.</p>
+        <a href="#top">К началу каталога <span>↑</span></a>
+      </section>
+    </main>
+    <footer class="site-footer"><span>50 AI-АГЕНТОВ / ПРАКТИЧЕСКИЙ КАТАЛОГ</span><span>ДЛЯ УЧАСТНИКОВ ВЕБИНАРА</span></footer>
+  </div>
+
+  <button class="mobile-dock" id="mobile-dock" type="button" aria-controls="mobile-drawer" aria-expanded="false"><span class="dock-icon">☷</span><span class="dock-label">Все агенты</span><span class="dock-count" id="dock-count">01 / 50</span></button>
+  <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+  <section class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Список AI-агентов" hidden>
+    <div class="drawer-head"><strong>Выберите агента<span>.</span></strong><button id="drawer-close" type="button" aria-label="Закрыть меню">×</button></div>
+    <label class="search-field"><span>⌕</span><input id="agent-search" type="search" placeholder="Поиск по названию" autocomplete="off" aria-label="Поиск агента"></label>
+    <div class="drawer-chapters" id="drawer-chapters"></div>
+    <div class="drawer-list" id="drawer-list"></div>
+  </section>
+</body>
+</html>
