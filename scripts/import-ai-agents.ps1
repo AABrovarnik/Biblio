@@ -28,7 +28,7 @@ function Repair-Mojibake {
 function Write-Utf8WithRetry {
   param(
     [Parameter(Mandatory = $true)][string]$Path,
-    [Parameter(Mandatory = $true)][string[]]$Lines,
+    [Parameter(Mandatory = $true)][AllowEmptyString()][string[]]$Lines,
     [int]$MaxAttempts = 5
   )
 

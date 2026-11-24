@@ -1,8 +1,8 @@
-# Идеи на будущее: 50 AI-агентов
+﻿# Future ideas: 50 AI agents
 
-Источник: https://aiproject-dr.ru/ai-agents/
+Source: https://aiproject-dr.ru/ai-agents/
 
-Дата фиксации: 2026-11-17 08:48:47
+Snapshot date: 2026-11-24 09:45:15
 
 ## B2B Front Office
 
@@ -63,12 +63,9 @@
 49. AI-консультант по строительству дома
 50. AI-помощник по личным документам
 
-## Как использовать в Biblio
+## Usage in Biblio
 
-- выбирать 1 идею и оформлять под неё отдельное ТЗ в `specs/technical-assignments/`;
-- фиксировать промпты прототипирования в `prompts/`;
-- складывать паттерны реализации в `skills/` и `references/`;
-- поддерживать отдельный shortlist ближайших MVP рядом с этим каталогом.
-
-
-
+- pick one idea and convert it into a dedicated spec in `specs/technical-assignments/`;
+- store prototyping prompts in `prompts/`;
+- save implementation patterns in `skills/` and `references/`;
+- maintain a separate shortlist for near-term MVPs next to this catalog.
